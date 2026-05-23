@@ -155,10 +155,54 @@
 .landing-intro h1 {
   margin: 0;
   letter-spacing: 2px;
-  font-size: 28px;
-  line-height: 28px;
-  font-weight: 500;
+  font-size: 36px;
+  line-height: 34px;
+  font-weight: 700;
   font-family: "Geist", sans-serif;
+}
+
+.landing-cta-row {
+  display: flex;
+  gap: 12px;
+  margin-top: 24px;
+  flex-wrap: wrap;
+}
+
+.landing-cta-btn {
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  padding: 10px 22px;
+  border-radius: 30px;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.landing-cta-primary {
+  background: var(--accentColor);
+  color: #ffffff;
+  border: 1px solid var(--accentColor);
+}
+
+.landing-cta-primary:hover {
+  background: transparent;
+  color: var(--accentColor);
+}
+
+.landing-cta-secondary {
+  background: rgba(255,255,255,0.06);
+  color: rgba(255,255,255,0.7);
+  border: 1px solid rgba(255,255,255,0.15);
+}
+
+.landing-cta-secondary:hover {
+  background: rgba(255,255,255,0.12);
+  color: #ffffff;
+  border-color: rgba(255,255,255,0.3);
 }
 
 .landing-info {

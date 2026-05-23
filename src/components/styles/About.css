@@ -23,11 +23,56 @@
   color: var(--accentColor);
 }
 
+.about-badge {
+  display: inline-flex;
+  align-items: center;
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--accentColor);
+  background: rgba(255, 107, 43, 0.08);
+  border: 1px solid rgba(255, 107, 43, 0.25);
+  padding: 6px 14px;
+  border-radius: 30px;
+  margin: 12px 0 20px 0;
+}
+
 .about-me p {
-  font-size: 33px;
+  font-size: 22px;
+  font-weight: 400;
+  line-height: 32px;
+  letter-spacing: 0.3px;
+  color: rgba(255,255,255,0.75);
+  margin: 0 0 32px 0;
+}
+
+.about-stats {
+  display: flex;
+  gap: 32px;
+  flex-wrap: wrap;
+}
+
+.about-stat {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.about-stat-num {
+  font-size: 42px;
+  font-weight: 800;
+  line-height: 1;
+  color: #ffffff;
+  letter-spacing: -1px;
+}
+
+.about-stat-label {
+  font-size: 11px;
   font-weight: 600;
-  line-height: 36px;
-  letter-spacing: 1px;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: rgba(255,255,255,0.4);
 }
 
 @media only screen and (min-width: 600px) {

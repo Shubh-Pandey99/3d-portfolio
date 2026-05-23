@@ -66,6 +66,17 @@ const Blogs = () => {
             </a>
           ))}
         </div>
+        <div className="blogs-cta">
+          <a
+            href="https://medium.com/@shubhpandet"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="blogs-medium-btn"
+            data-cursor="disable"
+          >
+            View All Articles on Medium <TbArrowUpRight />
+          </a>
+        </div>
       </div>
     </div>
   );

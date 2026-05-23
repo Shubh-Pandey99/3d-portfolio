@@ -18,9 +18,9 @@ const imageUrls = [
   "/images/terraform.png",
   "/images/docker.png",
   "/images/python.png",
-  "/images/node2.webp",
-  "/images/typescript.webp",
-  "/images/javascript.webp",
+  "/images/gcp.svg",
+  "/images/prometheus.svg",
+  "/images/linux.svg",
 ];
 const textures = imageUrls.map((url) => textureLoader.load(url));
 
@@ -168,7 +168,7 @@ const TechStack = () => {
 
   return (
     <div className="techstack">
-      <h2> My Techstack</h2>
+      <h2> TECH ARSENAL</h2>
 
       <Canvas
         shadows

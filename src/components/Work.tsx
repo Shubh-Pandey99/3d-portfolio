@@ -113,6 +113,10 @@ const Work = () => {
               </div>
             </div>
           ))}
+          <div className="work-scroll-hint">
+            <span className="work-scroll-arrow">→</span>
+            <span className="work-scroll-text">Scroll</span>
+          </div>
         </div>
       </div>
     </div>

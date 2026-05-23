@@ -3,6 +3,59 @@
   padding-bottom: 100px;
   margin-top: 100px;
 }
+
+.contact-hero {
+  margin-bottom: 60px;
+  padding-bottom: 60px;
+  border-bottom: 1px solid rgba(255,255,255,0.06);
+}
+
+.contact-hero-heading {
+  font-size: 72px;
+  font-weight: 900;
+  letter-spacing: -2px;
+  margin: 0 0 16px 0;
+  line-height: 1;
+  font-style: italic;
+  text-transform: uppercase;
+  color: #ffffff;
+}
+
+.contact-hero-heading span {
+  color: var(--accentColor);
+}
+
+.contact-hero-sub {
+  font-size: 16px;
+  font-weight: 400;
+  color: rgba(255,255,255,0.5);
+  margin: 0 0 28px 0;
+  max-width: 480px;
+  line-height: 1.6;
+}
+
+.contact-linkedin-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 13px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: #ffffff;
+  background: var(--accentColor);
+  border: 1px solid var(--accentColor);
+  padding: 12px 28px;
+  border-radius: 30px;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.contact-linkedin-btn:hover {
+  background: transparent;
+  color: var(--accentColor);
+}
+
 .contact-section h3 {
   font-size: 60px;
   font-weight: 400;

@@ -5,6 +5,19 @@ const Contact = () => {
   return (
     <div className="contact-section section-container" id="contact">
       <div className="contact-container">
+        <div className="contact-hero">
+          <h2 className="contact-hero-heading">Let's Build <span>Something.</span></h2>
+          <p className="contact-hero-sub">Open to senior cloud, SRE, and platform engineering roles. Let's connect.</p>
+          <a
+            href="https://linkedin.com/in/shubhpandey9"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="contact-linkedin-btn"
+            data-cursor="disable"
+          >
+            Connect on LinkedIn <MdArrowOutward />
+          </a>
+        </div>
         <h3>Contact</h3>
         <div className="contact-flex">
           <div className="contact-box">
