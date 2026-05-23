@@ -8,8 +8,8 @@
   opacity: 1;
   height: auto;
   margin: auto;
-  margin-bottom: 60px;
-  padding: 60px 0px;
+  margin-bottom: 80px;
+  padding: 80px 0px;
 }
 
 .blogs-section h2 {
@@ -22,8 +22,8 @@
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   color: transparent;
-  margin-top: 20px;
-  margin-bottom: 40px;
+  margin-top: 50px;
+  margin-bottom: 80px;
 }
 
 .blogs-section h2 > span {

@@ -2,7 +2,7 @@
 .techstack-section {
   width: 100%;
   position: relative;
-  padding: 60px 0 70px 0;
+  padding: 60px 0 80px 0;
   background-color: var(--backgroundColor);
 }
 
@@ -33,7 +33,7 @@
   font-size: 15px;
   font-weight: 400;
   color: rgba(255, 255, 255, 0.45);
-  margin: 0 0 36px 0;
+  margin: 0 0 64px 0;
   max-width: 560px;
   line-height: 1.6;
 }
