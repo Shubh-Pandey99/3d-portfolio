@@ -55,9 +55,9 @@ function SphereGeo({
       .normalize()
       .multiply(
         new THREE.Vector3(
-          -50 * delta * scale,
-          -150 * delta * scale,
-          -50 * delta * scale
+          -30 * delta * scale,
+          -80 * delta * scale,
+          -30 * delta * scale
         )
       );
 
@@ -66,8 +66,8 @@ function SphereGeo({
 
   return (
     <RigidBody
-      linearDamping={0.75}
-      angularDamping={0.15}
+      linearDamping={2.5}
+      angularDamping={0.4}
       friction={0.2}
       position={[r(20), r(20) - 25, r(20) - 10]}
       ref={api}

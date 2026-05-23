@@ -13,28 +13,6 @@ const Landing = ({ children }: PropsWithChildren) => {
               <br />
               <span>PANDEY</span>
             </h1>
-            <div className="landing-cta-row">
-              <a
-                href="https://linkedin.com/in/shubhpandey9"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="landing-cta-btn landing-cta-primary"
-                data-cursor="disable"
-              >
-                LinkedIn ↗
-              </a>
-              <a
-                href="#about"
-                className="landing-cta-btn landing-cta-secondary"
-                data-cursor="disable"
-                onClick={(e) => {
-                  e.preventDefault();
-                  document.getElementById("about")?.scrollIntoView({ behavior: "smooth" });
-                }}
-              >
-                Scroll Down ↓
-              </a>
-            </div>
           </div>
           <div className="landing-info">
             <h3>A Senior</h3>

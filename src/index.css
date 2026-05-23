@@ -7,7 +7,6 @@
   font-style: normal;
   line-height: 1.5;
   scroll-behavior: smooth;
-  color-scheme: light dark;
   color: #eae5ec;
   background-color: var(--backgroundColor);
 
@@ -20,9 +19,109 @@
   -moz-user-select: none;
   --accentColor: #ff6b2b;
   --backgroundColor: #0a0807;
+  --textColor: #eae5ec;
+  --textMuted: rgba(255,255,255,0.5);
+  --cardBg: rgba(255,255,255,0.03);
+  --cardBorder: rgba(255,255,255,0.07);
   --vh: 100vh;
   --vh: 100svh;
 }
+
+/* ===== DARK THEME (default) ===== */
+[data-theme="dark"] {
+  --backgroundColor: #0a0807;
+  --textColor: #eae5ec;
+  --textMuted: rgba(255,255,255,0.5);
+  --cardBg: rgba(255,255,255,0.03);
+  --cardBorder: rgba(255,255,255,0.07);
+  color: #eae5ec;
+}
+
+/* ===== LIGHT THEME ===== */
+[data-theme="light"] {
+  --backgroundColor: #f5f3f1;
+  --textColor: #1a1210;
+  --textMuted: rgba(0,0,0,0.5);
+  --cardBg: rgba(0,0,0,0.03);
+  --cardBorder: rgba(0,0,0,0.08);
+  color: #1a1210;
+}
+
+[data-theme="light"] body {
+  background-color: #f5f3f1;
+}
+
+[data-theme="light"] .landing-circle1,
+[data-theme="light"] .landing-circle2 {
+  opacity: 0.4;
+}
+
+[data-theme="light"] .career-section h2,
+[data-theme="light"] .blogs-section h2 {
+  background: linear-gradient(0deg, #ff6b2b, #1a1210);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+[data-theme="light"] .about-me h3,
+[data-theme="light"] .landing-intro h2,
+[data-theme="light"] .landing-info h3 {
+  color: var(--accentColor);
+}
+
+[data-theme="light"] .what-content h3,
+[data-theme="light"] .what-content h4,
+[data-theme="light"] .what-content h5,
+[data-theme="light"] .what-content p {
+  color: #1a1210;
+}
+
+[data-theme="light"] .contact-section,
+[data-theme="light"] .career-info-box,
+[data-theme="light"] .blog-card {
+  color: #1a1210;
+}
+
+[data-theme="light"] .blog-card {
+  background-color: rgba(255,255,255,0.7);
+  border-color: rgba(0,0,0,0.08);
+}
+
+[data-theme="light"] .blog-info p,
+[data-theme="light"] .edu-description,
+[data-theme="light"] .career-bullets li {
+  color: rgba(0,0,0,0.65);
+}
+
+[data-theme="light"] .cert-card-new,
+[data-theme="light"] .edu-card-inner {
+  background: rgba(255,255,255,0.7);
+  border-color: rgba(0,0,0,0.08);
+}
+
+[data-theme="light"] .cert-name,
+[data-theme="light"] .cert-issuer,
+[data-theme="light"] .cert-validity {
+  color: #1a1210;
+}
+
+[data-theme="light"] .landing-info-h2,
+[data-theme="light"] h1,
+[data-theme="light"] h2,
+[data-theme="light"] h3,
+[data-theme="light"] h4 {
+  color: #1a1210;
+}
+
+[data-theme="light"] a {
+  color: inherit;
+}
+
+[data-theme="light"] .header {
+  background: transparent;
+}
+
 h1,
 h2,
 h3,
