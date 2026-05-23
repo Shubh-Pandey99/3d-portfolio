@@ -2,7 +2,6 @@ import * as THREE from "three";
 import { useRef, useMemo, useState, useEffect } from "react";
 import { Canvas, useFrame } from "@react-three/fiber";
 import { Environment } from "@react-three/drei";
-import { EffectComposer, N8AO } from "@react-three/postprocessing";
 import {
   BallCollider,
   Physics,
@@ -35,7 +34,7 @@ const skills = [
   { name: "FastAPI",      url: "/images/fastapi.png",      scale: 0.8 },
 ];
 
-const sphereGeometry = new THREE.SphereGeometry(1, 28, 28);
+const sphereGeometry = new THREE.SphereGeometry(1, 40, 40);
 
 type SphereProps = {
   vec?: THREE.Vector3;
@@ -166,17 +165,19 @@ const TechStack = () => {
 
   const materials = useMemo(() => {
     return textures.map(
-      (texture) =>
-        new THREE.MeshPhysicalMaterial({
+      (texture) => {
+        // Ensure texture is fully lit — logos must be visible
+        texture.colorSpace = THREE.SRGBColorSpace;
+        return new THREE.MeshStandardMaterial({
           map: texture,
           color: 0xffffff,
           emissive: 0xffffff,
           emissiveMap: texture,
-          emissiveIntensity: 0.75,
-          metalness: 0.05,
-          roughness: 0.55,
-          clearcoat: 0.1,
-        })
+          emissiveIntensity: 1.0,
+          metalness: 0.0,
+          roughness: 0.65,
+        });
+      }
     );
   }, [textures]);
 
@@ -185,22 +186,24 @@ const TechStack = () => {
       <h2>TECH ARSENAL</h2>
 
       <Canvas
-        shadows
-        gl={{ alpha: true, stencil: false, depth: false, antialias: false }}
+        shadows={false}
+        gl={{ alpha: true, stencil: false, depth: false, antialias: true }}
         camera={{ position: [0, 0, 20], fov: 32.5, near: 1, far: 100 }}
-        onCreated={(state) => (state.gl.toneMappingExposure = 1.5)}
+        onCreated={(state) => (state.gl.toneMappingExposure = 2.5)}
         className="tech-canvas"
       >
-        <ambientLight intensity={1} />
+        {/* Strong ambient so logos are always visible */}
+        <ambientLight intensity={3.5} />
+        {/* Front-facing fill light to illuminate logos */}
+        <directionalLight position={[0, 0, 10]} intensity={3.0} />
+        <directionalLight position={[0, 5, 5]} intensity={2.0} />
         <spotLight
           position={[20, 20, 25]}
           penumbra={1}
           angle={0.2}
           color="white"
-          castShadow
-          shadow-mapSize={[512, 512]}
+          intensity={2}
         />
-        <directionalLight position={[0, 5, -4]} intensity={2} />
         <Physics gravity={[0, 0, 0]}>
           <Pointer isActive={isActive} />
           {skills.map((skill, i) => (
@@ -214,12 +217,9 @@ const TechStack = () => {
         </Physics>
         <Environment
           files="/models/char_enviorment.hdr"
-          environmentIntensity={0.5}
+          environmentIntensity={1.0}
           environmentRotation={[0, 4, 2]}
         />
-        <EffectComposer enableNormalPass={false}>
-          <N8AO color="#1a0800" aoRadius={2} intensity={1.15} />
-        </EffectComposer>
       </Canvas>
     </div>
   );
