@@ -78,6 +78,7 @@
   box-sizing: border-box;
   will-change: transform;
   overflow: hidden;
+  background-color: var(--backgroundColor);
 }
 .work-container {
   margin: auto;
@@ -102,12 +103,10 @@
   box-sizing: border-box;
   border-right: 1px solid #363636;
   flex-shrink: 0;
-  gap: 50px;
-  justify-content: start;
+  gap: 24px;
+  justify-content: center;
 }
-.work-flex .work-box:nth-child(even) {
-  flex-direction: column-reverse;
-}
+/* Removed column-reverse on even items — was creating bottom black gap */
 .work-flex::before,
 .work-flex::after {
   content: "";
