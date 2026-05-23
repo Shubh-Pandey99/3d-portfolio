@@ -12,23 +12,30 @@ import {
 } from "@react-three/rapier";
 
 const textureLoader = new THREE.TextureLoader();
-const imageUrls = [
-  "/images/aws.png",
-  "/images/kubernetes.png",
-  "/images/terraform.png",
-  "/images/docker.png",
-  "/images/python.png",
-  "/images/gcp.svg",
-  "/images/prometheus.svg",
-  "/images/linux.svg",
+
+// One image per skill — sourced from resume. No duplicates.
+const skills = [
+  { name: "AWS",          url: "/images/aws.png",          scale: 1.0 },
+  { name: "GCP",          url: "/images/gcp.svg",          scale: 0.9 },
+  { name: "Azure",        url: "/images/azure.svg",        scale: 0.9 },
+  { name: "Kubernetes",   url: "/images/kubernetes.png",   scale: 1.0 },
+  { name: "Terraform",    url: "/images/terraform.png",    scale: 0.9 },
+  { name: "Docker",       url: "/images/docker.png",       scale: 0.9 },
+  { name: "Helm",         url: "/images/helm.svg",         scale: 0.8 },
+  { name: "Python",       url: "/images/python.png",       scale: 0.9 },
+  { name: "Bash",         url: "/images/bash.svg",         scale: 0.8 },
+  { name: "Ansible",      url: "/images/ansible.svg",      scale: 0.8 },
+  { name: "Prometheus",   url: "/images/prometheus.svg",   scale: 0.85 },
+  { name: "Grafana",      url: "/images/grafana.svg",      scale: 0.85 },
+  { name: "Datadog",      url: "/images/datadog.svg",      scale: 0.85 },
+  { name: "GitLab CI",    url: "/images/gitlab.svg",       scale: 0.85 },
+  { name: "Jenkins",      url: "/images/jenkins.svg",      scale: 0.8 },
+  { name: "TypeScript",   url: "/images/typescript.svg",   scale: 0.8 },
+  { name: "FastAPI",      url: "/images/fastapi.svg",      scale: 0.8 },
+  { name: "Linux",        url: "/images/linux.svg",        scale: 0.85 },
 ];
-const textures = imageUrls.map((url) => textureLoader.load(url));
 
 const sphereGeometry = new THREE.SphereGeometry(1, 28, 28);
-
-const spheres = [...Array(30)].map(() => ({
-  scale: [0.7, 1, 0.8, 1, 1][Math.floor(Math.random() * 5)],
-}));
 
 type SphereProps = {
   vec?: THREE.Vector3;
@@ -151,6 +158,12 @@ const TechStack = () => {
       window.removeEventListener("scroll", handleScroll);
     };
   }, []);
+
+  // One unique texture per skill
+  const textures = useMemo(() => {
+    return skills.map((s) => textureLoader.load(s.url));
+  }, []);
+
   const materials = useMemo(() => {
     return textures.map(
       (texture) =>
@@ -164,11 +177,11 @@ const TechStack = () => {
           clearcoat: 0.1,
         })
     );
-  }, []);
+  }, [textures]);
 
   return (
     <div className="techstack">
-      <h2> TECH ARSENAL</h2>
+      <h2>TECH ARSENAL</h2>
 
       <Canvas
         shadows
@@ -189,11 +202,11 @@ const TechStack = () => {
         <directionalLight position={[0, 5, -4]} intensity={2} />
         <Physics gravity={[0, 0, 0]}>
           <Pointer isActive={isActive} />
-          {spheres.map((props, i) => (
+          {skills.map((skill, i) => (
             <SphereGeo
-              key={i}
-              {...props}
-              material={materials[Math.floor(Math.random() * materials.length)]}
+              key={skill.name}
+              scale={skill.scale}
+              material={materials[i]}
               isActive={isActive}
             />
           ))}
