@@ -13,26 +13,26 @@ import {
 
 const textureLoader = new THREE.TextureLoader();
 
-// One image per skill — sourced from resume. No duplicates.
+// One image per skill — PNG only (SVGs don't render in WebGL)
 const skills = [
   { name: "AWS",          url: "/images/aws.png",          scale: 1.0 },
-  { name: "GCP",          url: "/images/gcp.svg",          scale: 0.9 },
-  { name: "Azure",        url: "/images/azure.svg",        scale: 0.9 },
+  { name: "GCP",          url: "/images/gcp.png",          scale: 0.9 },
+  { name: "Azure",        url: "/images/azure.png",        scale: 0.9 },
   { name: "Kubernetes",   url: "/images/kubernetes.png",   scale: 1.0 },
   { name: "Terraform",    url: "/images/terraform.png",    scale: 0.9 },
   { name: "Docker",       url: "/images/docker.png",       scale: 0.9 },
-  { name: "Helm",         url: "/images/helm.svg",         scale: 0.8 },
+  { name: "Helm",         url: "/images/helm.png",         scale: 0.8 },
   { name: "Python",       url: "/images/python.png",       scale: 0.9 },
-  { name: "Bash",         url: "/images/bash.svg",         scale: 0.8 },
-  { name: "Ansible",      url: "/images/ansible.svg",      scale: 0.8 },
-  { name: "Prometheus",   url: "/images/prometheus.svg",   scale: 0.85 },
-  { name: "Grafana",      url: "/images/grafana.svg",      scale: 0.85 },
-  { name: "Datadog",      url: "/images/datadog.svg",      scale: 0.85 },
-  { name: "GitLab CI",    url: "/images/gitlab.svg",       scale: 0.85 },
-  { name: "Jenkins",      url: "/images/jenkins.svg",      scale: 0.8 },
-  { name: "TypeScript",   url: "/images/typescript.svg",   scale: 0.8 },
-  { name: "FastAPI",      url: "/images/fastapi.svg",      scale: 0.8 },
-  { name: "Linux",        url: "/images/linux.svg",        scale: 0.85 },
+  { name: "Bash",         url: "/images/bash.png",         scale: 0.8 },
+  { name: "Ansible",      url: "/images/ansible.png",      scale: 0.8 },
+  { name: "Prometheus",   url: "/images/prometheus.png",   scale: 0.85 },
+  { name: "Grafana",      url: "/images/grafana.png",      scale: 0.85 },
+  { name: "Datadog",      url: "/images/datadog.png",      scale: 0.85 },
+  { name: "GitLab CI",    url: "/images/gitlab.png",       scale: 0.85 },
+  { name: "Jenkins",      url: "/images/jenkins.png",      scale: 0.8 },
+  { name: "TypeScript",   url: "/images/typescript.png",   scale: 0.8 },
+  { name: "Linux",        url: "/images/linux.png",        scale: 0.85 },
+  { name: "FastAPI",      url: "/images/fastapi.png",      scale: 0.8 },
 ];
 
 const sphereGeometry = new THREE.SphereGeometry(1, 28, 28);
@@ -169,11 +169,12 @@ const TechStack = () => {
       (texture) =>
         new THREE.MeshPhysicalMaterial({
           map: texture,
-          emissive: "#ffffff",
+          color: 0xffffff,
+          emissive: 0xffffff,
           emissiveMap: texture,
-          emissiveIntensity: 0.3,
-          metalness: 0.5,
-          roughness: 1,
+          emissiveIntensity: 0.75,
+          metalness: 0.05,
+          roughness: 0.55,
           clearcoat: 0.1,
         })
     );
