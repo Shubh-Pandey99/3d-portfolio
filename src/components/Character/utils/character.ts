@@ -16,6 +16,12 @@ const setCharacter = (
   const loadCharacter = () => {
     return new Promise<GLTF | null>(async (resolve, reject) => {
       try {
+        // [AVATAR REPLACEMENT INSTRUCTIONS]:
+        // To use your own custom avatar (like Ready Player Me or Nano Baba):
+        // 1. Place your .glb file inside the public/models directory and name it 'avatar.glb'
+        // 2. Comment out the decryption logic below and uncomment the direct URL:
+        // const blobUrl = '/models/avatar.glb';
+
         const encryptedBlob = await decryptFile(
           "/models/character.enc",
           "Character3D#@"

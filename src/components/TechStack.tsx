@@ -18,9 +18,9 @@ const imageUrls = [
   "/images/terraform.png",
   "/images/docker.png",
   "/images/python.png",
-  "/images/aws.png",       // duplicate - AWS is primary
-  "/images/kubernetes.png", // duplicate - K8s is primary
-  "/images/terraform.png",  // duplicate - Terraform is primary
+  "/images/node2.webp",
+  "/images/typescript.webp",
+  "/images/javascript.webp",
 ];
 const textures = imageUrls.map((url) => textureLoader.load(url));
 

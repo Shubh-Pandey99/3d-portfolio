@@ -1,29 +1,13 @@
-import { useEffect, useRef } from "react";
+import { useState } from "react";
 import "./styles/WhatIDo.css";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 const WhatIDo = () => {
-  const containerRef = useRef<(HTMLDivElement | null)[]>([]);
-  const setRef = (el: HTMLDivElement | null, index: number) => {
-    containerRef.current[index] = el;
+  const [activeIndex, setActiveIndex] = useState<number | null>(null);
+
+  const handleInteraction = (index: number) => {
+    setActiveIndex(activeIndex === index ? null : index);
   };
-  useEffect(() => {
-    if (ScrollTrigger.isTouch) {
-      containerRef.current.forEach((container) => {
-        if (container) {
-          container.classList.remove("what-noTouch");
-          container.addEventListener("click", () => handleClick(container));
-        }
-      });
-    }
-    return () => {
-      containerRef.current.forEach((container) => {
-        if (container) {
-          container.removeEventListener("click", () => handleClick(container));
-        }
-      });
-    };
-  }, []);
+
   return (
     <div className="whatIDO">
       <div className="what-box">
@@ -59,8 +43,10 @@ const WhatIDo = () => {
             </svg>
           </div>
           <div
-            className="what-content what-noTouch"
-            ref={(el) => setRef(el, 0)}
+            className={`what-content ${activeIndex === 0 ? "what-content-active" : (activeIndex === 1 ? "what-sibling" : "what-noTouch")}`}
+            onClick={() => handleInteraction(0)}
+            onMouseEnter={() => setActiveIndex(0)}
+            onMouseLeave={() => setActiveIndex(null)}
           >
             <div className="what-border1">
               <svg height="100%">
@@ -107,8 +93,10 @@ const WhatIDo = () => {
             </div>
           </div>
           <div
-            className="what-content what-noTouch"
-            ref={(el) => setRef(el, 1)}
+            className={`what-content ${activeIndex === 1 ? "what-content-active" : (activeIndex === 0 ? "what-sibling" : "what-noTouch")}`}
+            onClick={() => handleInteraction(1)}
+            onMouseEnter={() => setActiveIndex(1)}
+            onMouseLeave={() => setActiveIndex(null)}
           >
             <div className="what-border1">
               <svg height="100%">
@@ -152,18 +140,3 @@ const WhatIDo = () => {
 };
 
 export default WhatIDo;
-
-function handleClick(container: HTMLDivElement) {
-  container.classList.toggle("what-content-active");
-  container.classList.remove("what-sibling");
-  if (container.parentElement) {
-    const siblings = Array.from(container.parentElement.children);
-
-    siblings.forEach((sibling) => {
-      if (sibling !== container) {
-        sibling.classList.remove("what-content-active");
-        sibling.classList.toggle("what-sibling");
-      }
-    });
-  }
-}

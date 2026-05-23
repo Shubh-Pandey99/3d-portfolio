@@ -25,9 +25,8 @@ interface CertificationsCanvasProps {
 const textureLoader = new THREE.TextureLoader();
 textureLoader.setCrossOrigin("anonymous");
 
-// Cylinder geometries for backing and textures
-const cylinderGeometry = new THREE.CylinderGeometry(0.9, 0.9, 0.12, 32);
-const planeGeometry = new THREE.PlaneGeometry(1.4, 1.4);
+const cylinderGeometry = new THREE.CylinderGeometry(0.85, 0.85, 0.14, 40);
+const planeGeometry = new THREE.PlaneGeometry(1.35, 1.35);
 
 interface BadgeTokenProps {
   item: Certification;
@@ -41,61 +40,69 @@ function BadgeToken({ item, texture, onHover, scale }: BadgeTokenProps) {
   const meshRef = useRef<THREE.Group | null>(null);
   const [isHovered, setIsHovered] = useState(false);
   const vec = useRef(new THREE.Vector3());
-  const randSpeed = useRef(0.2 + Math.random() * 0.8);
+  const randSpeed = useRef(0.15 + Math.random() * 0.3);
   const randOffset = useRef(Math.random() * Math.PI * 2);
 
-  // Apply a central force to keep tokens clustered together, and add a subtle hover spin
   useFrame((_state, delta) => {
     if (!api.current) return;
-    delta = Math.min(0.1, delta);
+    delta = Math.min(0.05, delta);
 
-    // Dynamic central gravity force to keep badges neatly in view
+    // Gentle central gravity - much calmer than before
     const translation = api.current.translation();
     const impulse = vec.current
       .copy(translation)
       .normalize()
       .multiply(
         new THREE.Vector3(
-          -45 * delta * scale,
-          -120 * delta * scale,
-          -45 * delta * scale
+          -20 * delta * scale,
+          -40 * delta * scale,
+          -20 * delta * scale
         )
       );
 
     api.current.applyImpulse(impulse, true);
 
-    // Subtle ambient rotation to showcase the 3D metallic depth
     if (meshRef.current) {
       if (isHovered) {
-        // Spin faster and scale slightly on hover
-        meshRef.current.rotation.y += delta * 2.5;
-        const targetScale = scale * 1.25;
-        meshRef.current.scale.lerp(new THREE.Vector3(targetScale, targetScale, targetScale), 0.15);
+        // Gentle spin on hover
+        meshRef.current.rotation.y += delta * 1.2;
+        const targetScale = scale * 1.18;
+        meshRef.current.scale.lerp(
+          new THREE.Vector3(targetScale, targetScale, targetScale),
+          0.12
+        );
       } else {
-        // Slow ambient wobble/spin
-        meshRef.current.rotation.y = Math.sin(_state.clock.elapsedTime * randSpeed.current + randOffset.current) * 0.4;
-        meshRef.current.rotation.x = Math.PI / 2 + Math.cos(_state.clock.elapsedTime * 0.3) * 0.1;
-        meshRef.current.scale.lerp(new THREE.Vector3(scale, scale, scale), 0.1);
+        // Very slow ambient tilt - nearly stationary for easy clicking
+        meshRef.current.rotation.y =
+          Math.sin(
+            _state.clock.elapsedTime * randSpeed.current + randOffset.current
+          ) * 0.15;
+        meshRef.current.rotation.x =
+          Math.PI / 2 + Math.cos(_state.clock.elapsedTime * 0.2) * 0.06;
+        meshRef.current.scale.lerp(
+          new THREE.Vector3(scale, scale, scale),
+          0.08
+        );
       }
     }
   });
 
   return (
     <RigidBody
-      linearDamping={0.8}
-      angularDamping={0.2}
-      friction={0.3}
+      linearDamping={4.5}
+      angularDamping={8}
+      friction={0.8}
       position={[
-        (Math.random() - 0.5) * 12,
-        (Math.random() - 0.5) * 6,
-        (Math.random() - 0.5) * 2,
+        (Math.random() - 0.5) * 10,
+        (Math.random() - 0.5) * 4,
+        (Math.random() - 0.5) * 1,
       ]}
       ref={api}
       colliders={false}
     >
-      {/* Physics collider - slightly larger than the visual cylinder for smooth interactions */}
-      <BallCollider args={[0.95 * scale]} />
-      
+      {/* Larger collider for easier clicking */}
+      <BallCollider args={[1.05 * scale]} />
+
       <group
         ref={meshRef}
         onPointerOver={(e) => {
@@ -113,26 +120,26 @@ function BadgeToken({ item, texture, onHover, scale }: BadgeTokenProps) {
         {/* Metallic Backing Token */}
         <mesh castShadow receiveShadow geometry={cylinderGeometry}>
           <meshPhysicalMaterial
-            color="#20150d"
-            roughness={0.25}
-            metalness={0.85}
-            clearcoat={0.6}
-            clearcoatRoughness={0.1}
+            color="#18100a"
+            roughness={0.2}
+            metalness={0.9}
+            clearcoat={0.8}
+            clearcoatRoughness={0.08}
           />
         </mesh>
 
-        {/* Front Badge Face print */}
+        {/* Front Badge Face */}
         <mesh
-          position={[0, 0.062, 0]}
+          position={[0, 0.072, 0]}
           rotation={[-Math.PI / 2, 0, 0]}
           geometry={planeGeometry}
         >
           <meshBasicMaterial map={texture} transparent depthWrite={false} />
         </mesh>
 
-        {/* Back Badge Face print (shows when rotating) */}
+        {/* Back Badge Face */}
         <mesh
-          position={[0, -0.062, 0]}
+          position={[0, -0.072, 0]}
           rotation={[Math.PI / 2, 0, 0]}
           geometry={planeGeometry}
         >
@@ -143,7 +150,7 @@ function BadgeToken({ item, texture, onHover, scale }: BadgeTokenProps) {
   );
 }
 
-// Mouse kinematic collider to interact with the badges
+// Mouse kinematic collider - smaller so it doesn't throw badges as aggressively
 function Pointer({ vec = new THREE.Vector3() }) {
   const ref = useRef<RapierRigidBody>(null);
 
@@ -154,7 +161,7 @@ function Pointer({ vec = new THREE.Vector3() }) {
         (pointer.y * viewport.height) / 2,
         0
       ),
-      0.2
+      0.1
     );
     ref.current?.setNextKinematicTranslation(targetVec);
   });
@@ -166,51 +173,47 @@ function Pointer({ vec = new THREE.Vector3() }) {
       colliders={false}
       ref={ref}
     >
-      <BallCollider args={[1.5]} />
+      <BallCollider args={[0.9]} />
     </RigidBody>
   );
 }
 
 const CertificationsCanvas = ({ items, onHoverItem }: CertificationsCanvasProps) => {
-  // Pre-load all textures
   const loadedTextures = useMemo(() => {
     return items.map((item) => {
       const tex = textureLoader.load(item.badge);
-      // Maximize clarity for badge textures
       tex.minFilter = THREE.LinearMipmapLinearFilter;
       tex.magFilter = THREE.LinearFilter;
       return tex;
     });
   }, [items]);
 
-  // Distribute badge scales slightly for visual organic variation
   const itemScales = useMemo(() => {
     return items.map((_, index) => {
-      // Primary / Professional certs are slightly larger
-      if (index === 0 || index === 1) return 1.05;
-      return 0.9;
+      if (index === 0 || index === 1) return 1.0;
+      return 0.88;
     });
   }, [items]);
 
   return (
     <Canvas
       shadows
-      gl={{ alpha: true, stencil: false, depth: true, antialias: true }}
-      camera={{ position: [0, 0, 14], fov: 36, near: 1, far: 50 }}
-      onCreated={(state) => (state.gl.toneMappingExposure = 1.3)}
+      gl={{ alpha: true, stencil: false, depth: false, antialias: true }}
+      camera={{ position: [0, 0, 20], fov: 35, near: 1, far: 60 }}
+      onCreated={(state) => (state.gl.toneMappingExposure = 1.2)}
       style={{ width: "100%", height: "100%" }}
     >
-      <ambientLight intensity={1.2} />
+      <ambientLight intensity={1.4} />
       <spotLight
-        position={[15, 20, 15]}
+        position={[10, 15, 10]}
         penumbra={1}
-        angle={0.25}
+        angle={0.3}
         color="#ff8c42"
         castShadow
         shadow-mapSize={[512, 512]}
       />
-      <directionalLight position={[-5, 5, 8]} intensity={1.5} color="#ffffff" />
-      
+      <directionalLight position={[-5, 5, 8]} intensity={1.2} color="#ffffff" />
+
       <Physics gravity={[0, 0, 0]}>
         <Pointer />
         {items.map((item, i) => (
@@ -226,11 +229,11 @@ const CertificationsCanvas = ({ items, onHoverItem }: CertificationsCanvasProps)
 
       <Environment
         files="/models/char_enviorment.hdr"
-        environmentIntensity={0.6}
+        environmentIntensity={0.5}
         environmentRotation={[0, 3, 1]}
       />
       <EffectComposer enableNormalPass={false}>
-        <N8AO color="#1a0a02" aoRadius={1.5} intensity={1.2} />
+        <N8AO color="#120800" aoRadius={1.2} intensity={1.0} />
       </EffectComposer>
     </Canvas>
   );
