@@ -1,0 +1,151 @@
+/* ===== TECH ARSENAL SECTION ===== */
+.techstack-section {
+  width: 100%;
+  position: relative;
+  padding: 100px 0 120px 0;
+  background-color: var(--backgroundColor);
+}
+
+.techstack-container {
+  width: var(--cWidth);
+  max-width: 1400px;
+  margin: auto;
+  box-sizing: border-box;
+}
+
+.techstack-heading {
+  font-size: 72px;
+  font-weight: 900;
+  letter-spacing: -2px;
+  margin: 0 0 16px 0;
+  line-height: 1;
+  font-style: italic;
+  text-transform: uppercase;
+  color: #ffffff;
+  text-align: left;
+}
+
+.techstack-heading span {
+  color: var(--accentColor);
+}
+
+.techstack-sub {
+  font-size: 15px;
+  font-weight: 400;
+  color: rgba(255, 255, 255, 0.45);
+  margin: 0 0 64px 0;
+  max-width: 560px;
+  line-height: 1.6;
+}
+
+/* ===== GROUPS ===== */
+.techstack-groups {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+
+.skill-group {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.skill-group-label {
+  font-size: 10px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  color: rgba(255, 255, 255, 0.3);
+  margin: 0;
+  padding-left: 2px;
+}
+
+/* ===== CHIPS ROW ===== */
+.skill-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.skill-chip {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 18px 10px 12px;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 40px;
+  cursor: default;
+  transition: background 0.25s ease, border-color 0.25s ease,
+    transform 0.2s ease, box-shadow 0.25s ease;
+  user-select: none;
+}
+
+.skill-chip:hover {
+  background: rgba(255, 107, 43, 0.08);
+  border-color: rgba(255, 107, 43, 0.3);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px -8px rgba(255, 107, 43, 0.15);
+}
+
+.skill-chip-icon-wrap {
+  width: 28px;
+  height: 28px;
+  flex-shrink: 0;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.08);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  padding: 4px;
+  box-sizing: border-box;
+  transition: background 0.25s ease;
+}
+
+.skill-chip:hover .skill-chip-icon-wrap {
+  background: rgba(255, 107, 43, 0.15);
+}
+
+.skill-chip-icon {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.skill-chip-name {
+  font-size: 13px;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.75);
+  letter-spacing: 0.02em;
+  white-space: nowrap;
+  transition: color 0.25s ease;
+}
+
+.skill-chip:hover .skill-chip-name {
+  color: #ffffff;
+}
+
+/* ===== RESPONSIVE ===== */
+@media only screen and (max-width: 768px) {
+  .techstack-heading {
+    font-size: 48px;
+  }
+  .techstack-section {
+    padding: 70px 0 80px 0;
+  }
+}
+
+@media only screen and (max-width: 480px) {
+  .techstack-heading {
+    font-size: 36px;
+    letter-spacing: -1px;
+  }
+  .skill-chip {
+    padding: 8px 14px 8px 10px;
+  }
+  .skill-chip-name {
+    font-size: 12px;
+  }
+}
