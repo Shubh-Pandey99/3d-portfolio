@@ -222,3 +222,13 @@
     justify-content: left;
   }
 }
+
+/* Subtle left-border ambient glow on career cards */
+.career-info-box {
+  border-left: 2px solid transparent;
+  padding-left: 20px;
+  transition: border-color 0.3s;
+}
+.career-info-box:hover {
+  border-left-color: rgba(255, 107, 43, 0.4);
+}

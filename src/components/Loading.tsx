@@ -46,7 +46,7 @@ const Loading = ({ percent }: { percent: number }) => {
     <>
       <div className="loading-header">
         <a href="/#" className="loader-title" data-cursor="disable">
-          Logo
+          SHUBH
         </a>
         <div className={`loaderGame ${clicked && "loader-out"}`}>
           <div className="loaderGame-container">
@@ -62,8 +62,8 @@ const Loading = ({ percent }: { percent: number }) => {
       <div className="loading-screen">
         <div className="loading-marquee">
           <Marquee>
-            <span> A Creative Developer</span> <span>A Creative Designer</span>
-            <span> A Creative Developer</span> <span>A Creative Designer</span>
+            <span> Cloud & SRE Engineer</span> <span>AWS & Kubernetes Expert</span>
+            <span> Cloud & SRE Engineer</span> <span>AWS & Kubernetes Expert</span>
           </Marquee>
         </div>
         <div
@@ -112,11 +112,6 @@ export const setProgress = (setLoading: (value: number) => void) => {
     }
   }, 100);
 
-  function clear() {
-    clearInterval(interval);
-    setLoading(100);
-  }
-
   function loaded() {
     return new Promise<number>((resolve) => {
       clearInterval(interval);
@@ -131,5 +126,5 @@ export const setProgress = (setLoading: (value: number) => void) => {
       }, 2);
     });
   }
-  return { loaded, percent, clear };
+  return { loaded, percent };
 };

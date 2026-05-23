@@ -18,9 +18,9 @@ const imageUrls = [
   "/images/terraform.png",
   "/images/docker.png",
   "/images/python.png",
-  "/images/typescript.webp",
-  "/images/javascript.webp",
-  "/images/node2.webp",
+  "/images/aws.png",       // duplicate - AWS is primary
+  "/images/kubernetes.png", // duplicate - K8s is primary
+  "/images/terraform.png",  // duplicate - Terraform is primary
 ];
 const textures = imageUrls.map((url) => textureLoader.load(url));
 
@@ -204,7 +204,7 @@ const TechStack = () => {
           environmentRotation={[0, 4, 2]}
         />
         <EffectComposer enableNormalPass={false}>
-          <N8AO color="#0f002c" aoRadius={2} intensity={1.15} />
+          <N8AO color="#1a0800" aoRadius={2} intensity={1.15} />
         </EffectComposer>
       </Canvas>
     </div>
