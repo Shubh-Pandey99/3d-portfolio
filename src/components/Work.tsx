@@ -14,11 +14,9 @@ const Work = () => {
     if (!box.length || !workFlex || !workContainer) return;
 
     const getTranslateX = () => {
-      const rectLeft = workContainer.getBoundingClientRect().left;
-      const rect = box[0].getBoundingClientRect();
-      const parentWidth = workFlex.parentElement!.getBoundingClientRect().width;
-      const padding = parseInt(window.getComputedStyle(box[0]).padding) / 2;
-      return rect.width * box.length - (rectLeft + parentWidth) + padding;
+      const scrollWidth = (workFlex as HTMLElement).scrollWidth;
+      const parentWidth = workFlex.parentElement!.clientWidth;
+      return Math.max(0, scrollWidth - parentWidth);
     };
 
     const timeline = gsap.timeline({
