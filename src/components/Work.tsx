@@ -21,7 +21,7 @@ const Work = () => {
       return rect.width * box.length - (rectLeft + parentWidth) + padding;
     };
 
-    let timeline = gsap.timeline({
+    const timeline = gsap.timeline({
       scrollTrigger: {
         trigger: ".work-section",
         start: "top top",

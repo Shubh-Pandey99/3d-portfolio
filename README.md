@@ -1,65 +1,81 @@
-# My Portfolio Website - Overview 🚀
+# 🚀 3D Interactive Developer Portfolio — Shubh Pandey
 
-This repository contains the open-source version of my personal portfolio website.  
-Feel free to explore the code and use it for learning and inspiration.
+Welcome to the repository for my personal 3D interactive portfolio website! Built with cutting-edge front-end technologies, this website showcases a highly immersive, interactive 3D physics-based playground, smooth animations, and high-performance routing.
 
----
-
-## ⚠️ Usage Notice
-
-This project is shared for learning purposes only.
-
-Please do NOT:
-- Clone or replicate the full website or design
-- Repost it with minor content changes
-- Use this project for commercial/client work
-- Create tutorials or content using this exact project
-
-If you use parts of the code, you must provide proper credit linking back to the original repository.
-
-Build your own version — don’t just copy.
-
-— Moncy Yohannan
+👉 **Live Site:** [github.com/Shubh-Pandey99/3d-portfolio](https://github.com/Shubh-Pandey99/3d-portfolio)
+👉 **Contact:** [shubhpandet@gmail.com](mailto:shubhpandet@gmail.com)
 
 ---
 
-## 🛠️ Instructions
+## ✨ Features
 
-I have modified the GSAP Club plugins using trial versions.  
-⚠️ Note: Trial plugins cannot be used for production or hosting.
-
-For official GSAP Club plugins, refer here:  
-https://gsap.com/docs/v3/Installation/
+- **🎮 3D Interactive Physics Canvas**: A real-time 3D physics playground utilizing `@react-three/rapier` where visitors can drag and interact with custom-textured spheres representing core platform skills.
+- **🎨 Warm Amber Glow & Premium UI Theme**: Redesigned from standard templates to feature a warm amber and orange glow theme, sleek dark modes, premium glassmorphism, and modern typography.
+- **⚙️ Self-Healing Cloud & SRE Projects**: Showcases premium cloud infrastructure engineering and automation projects with dedicated tool tags, descriptions, and interactive external links.
+- **⏱️ Interactive Smooth Scroll**: Implements `@gsap/react` and `ScrollTrigger` animations for fluid page transitions and rich visual section revealing.
+- **👤 Custom 3D Avatar Ready**: Preconfigured to mount and render a custom 3D model/avatar (like Ready Player Me) with full dynamic camera tracking.
 
 ---
 
 ## ⚙️ Tech Stack
 
-React • TypeScript • GSAP • Three.js • WebGL • HTML • CSS • JavaScript
+- **Framework**: [React](https://react.dev/) + [Vite](https://vitejs.dev/) + [TypeScript](https://www.typescriptlang.org/)
+- **3D Graphics**: [Three.js](https://threejs.org/) + [React Three Fiber (R3F)](https://docs.pmnd.rs/react-three-fiber/)
+- **3D Physics**: [@react-three/rapier](https://github.com/pmnd/rapier-js)
+- **Animations**: [GSAP (GreenSock)](https://gsap.com/) + `@gsap/react`
+- **Styling**: Vanilla CSS (Premium ambient glows, responsive layout tokens)
 
 ---
 
-## 🎨 Assets Usage
+## 🛠️ Getting Started & Local Setup
 
-Some 3D assets included in this repository are free to use for learning purposes.
+To run this project locally, ensure you have **Node.js** (v18 or higher) installed, then follow these steps:
 
-However:
+### 1. Clone the Repository
+```bash
+git clone https://github.com/Shubh-Pandey99/3d-portfolio.git
+cd 3d-portfolio
+```
 
-- The original 3D avatar used on my live portfolio is NOT included in this repository
-- That avatar is a custom asset created over ~1 month
-- It is not open source and not available for reuse
+### 2. Install Dependencies
+```bash
+npm install
+```
 
-Any usage, extraction, or redistribution of that avatar from my live website is strictly prohibited.
+### 3. Run in Development Mode
+```bash
+npm run dev
+```
+Open your browser and navigate to **`http://localhost:5173/`** to view it live!
+
+### 4. Build for Production
+```bash
+npm run build
+```
 
 ---
 
-![Protfolio-Preview](https://github.com/user-attachments/assets/3c4557e7-6392-4928-b8a9-7b2476ef4edd)
+## 👤 Customizing the 3D Avatar (Ready Player Me)
+
+The portfolio supports custom 3D avatars. To customize the avatar to resemble yourself:
+
+1. Visit **[Ready Player Me](https://readyplayer.me/)** and create a personalized avatar.
+2. Customize the clothes, skin tone, hair, and download the `.glb` model.
+3. Save your avatar file in the appropriate directory, and run the encryption utility if needed:
+   ```bash
+   node public/models/encrypt.cjs
+   ```
+4. Verify the model renders perfectly in the local environment!
 
 ---
 
-## 📄 License
+## 📄 License & Usage Notice
 
-This project is licensed under the Personal Portfolio License (PPL) v1.0.
+This project is licensed under the **Personal Portfolio License (PPL) v1.0**. 
 
-See the LICENSE file for full details
+Please see the [LICENSE](LICENSE) file for full details. 
 
+**Summary of Terms:**
+- You are free to view, study, and draw inspiration from the code.
+- Cloning, copying, or replicating the complete website design or experience directly for hosting, reposting with minor changes, or commercial usage is strictly prohibited.
+- If you utilize parts of the codebase, proper attribution linking back to this repository and mentioning **Shubh Pandey** is required.
