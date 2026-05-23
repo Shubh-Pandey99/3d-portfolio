@@ -49,18 +49,24 @@ const Work = () => {
     {
       title: "Scribe - AI Meeting Assistant",
       category: "AI & Browser Extension",
-      tools: "Chrome Extension API, Whisper STT, Gemini Flash 2.0, MongoDB, Flask",
+      tools: "Chrome Extension MV3, OpenAI Whisper STT, Google Gemini 2.0 Flash, Vercel",
+      githubUrl: "https://github.com/Shubh-Pandey99/scribe",
+      deployUrl: "https://scribe-extension.vercel.app",
     },
     {
       title: "TeacherPro Attendance App",
       category: "SaaS Dashboard & Analytics",
       tools: "React (Vite), Firebase Auth/Firestore, Node.js, Tailwind CSS",
+      githubUrl: "https://github.com/Shubh-Pandey99/music-teacher-app",
+      deployUrl: "https://dynamic-filament.vercel.app/login",
     },
     {
       title: "Email Remediation Automation",
       category: "Self-healing Cloud Operations",
       tools: "AWS Step Functions, Lambda (Python), EventBridge, DynamoDB, SNS",
-    }
+      githubUrl: "https://github.com/Shubh-Pandey99",
+      deployUrl: null,
+    },
   ];
 
   return (
@@ -75,7 +81,6 @@ const Work = () => {
               <div className="work-info">
                 <div className="work-title">
                   <h3>0{index + 1}</h3>
-
                   <div>
                     <h4>{project.title}</h4>
                     <p>{project.category}</p>
@@ -83,6 +88,28 @@ const Work = () => {
                 </div>
                 <h4>Tools and features</h4>
                 <p>{project.tools}</p>
+                <div className="work-links-row">
+                  <a
+                    href={project.githubUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="work-action-link"
+                    data-cursor="disable"
+                  >
+                    GitHub ↗
+                  </a>
+                  {project.deployUrl && (
+                    <a
+                      href={project.deployUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="work-action-link work-action-link-accent"
+                      data-cursor="disable"
+                    >
+                      Live App ↗
+                    </a>
+                  )}
+                </div>
               </div>
             </div>
           ))}

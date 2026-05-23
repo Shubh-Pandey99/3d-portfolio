@@ -3,6 +3,41 @@
   font-size: 70px;
   font-weight: 500;
 }
+.work-links-row {
+  display: flex;
+  gap: 10px;
+  margin-top: 20px;
+  flex-wrap: wrap;
+}
+.work-action-link {
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: rgba(255,255,255,0.6);
+  background: rgba(255,255,255,0.05);
+  border: 1px solid rgba(255,255,255,0.12);
+  padding: 7px 16px;
+  border-radius: 10px;
+  text-decoration: none;
+  transition: background 0.3s, color 0.3s, border-color 0.3s;
+}
+.work-action-link:hover {
+  background: rgba(255,255,255,0.1);
+  color: #ffffff;
+  border-color: rgba(255,255,255,0.25);
+}
+.work-action-link-accent {
+  color: var(--accentColor);
+  background: rgba(255,107,43,0.08);
+  border-color: rgba(255,107,43,0.25);
+}
+.work-action-link-accent:hover {
+  background: var(--accentColor);
+  color: #ffffff;
+  border-color: var(--accentColor);
+}
+
 .work-section h2 > span {
   color: var(--accentColor);
 }
