@@ -1,9 +1,17 @@
-# 🚀 3D Interactive Developer Portfolio — Shubh Pandey
+<div align="center">
 
-Welcome to the repository for my personal 3D interactive portfolio website! Built with cutting-edge front-end technologies, this website showcases a highly immersive, interactive 3D physics-based playground, smooth animations, and high-performance routing.
+# 🚀 3D Interactive Developer Portfolio
 
-👉 **Live Site:** [github.com/Shubh-Pandey99/3d-portfolio](https://github.com/Shubh-Pandey99/3d-portfolio)
+![Three.js](https://img.shields.io/badge/Three.js-000000?style=for-the-badge&logo=three.js&logoColor=white)
+![React](https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB)
+![TypeScript](https://img.shields.io/badge/TypeScript-3178C6?style=for-the-badge&logo=typescript&logoColor=white)
+
+**An immersive, interactive 3D physics-based playground, featuring smooth animations and high-performance routing.**
+
+👉 **Live Site:** *(Beta — Local execution only)*
 👉 **Contact:** [shubhpandet@gmail.com](mailto:shubhpandet@gmail.com)
+
+</div>
 
 ---
 
