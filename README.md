@@ -25,6 +25,13 @@
 
 ---
 
+## 🚀 Recent Codebase Updates
+- **Migrated to Standard GSAP**: Removed all deprecated `gsap-trial` dependencies; fully utilizes the free standard `gsap` package.
+- **Strict TypeScript & Clean Code**: Resolved all ESLint and React warnings, replaced `any` types with strict Three.js types (`THREE.Mesh`, `THREE.Object3D`), and separated context/utility logic.
+- **Vercel Deployment**: Configured and deployed to Vercel for high-performance global hosting.
+
+---
+
 ## ⚙️ Tech Stack
 
 - **Framework**: [React](https://react.dev/) + [Vite](https://vitejs.dev/) + [TypeScript](https://www.typescriptlang.org/)
