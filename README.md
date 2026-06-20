@@ -9,7 +9,7 @@
 
 **An immersive, interactive 3D physics-based playground, featuring smooth animations and high-performance routing.**
 
-👉 **Live Site:** [https://3d-portfolio-pi-lac-70.vercel.app](https://3d-portfolio-pi-lac-70.vercel.app)  
+👉 **Live Site:** [View Project](https://3d-portfolio-pi-lac-70.vercel.app)  
 👉 **Contact:** [shubhpandet@gmail.com](mailto:shubhpandet@gmail.com)
 
 </div>
