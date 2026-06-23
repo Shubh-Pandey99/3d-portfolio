@@ -1,5 +1,5 @@
 import { useState } from "react";
-import "./styles/WhatIDo.css";
+import "../../styles/WhatIDo.css";
 
 const WhatIDo = () => {
   const [activeIndex, setActiveIndex] = useState<number | null>(null);

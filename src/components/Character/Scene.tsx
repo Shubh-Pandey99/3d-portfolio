@@ -11,7 +11,7 @@ import {
   handleTouchMove,
 } from "./utils/mouseUtils";
 import setAnimations from "./utils/animationUtils";
-import { setProgress } from "./../utils/loadingProgress";
+import { setProgress } from "../../utils/loadingProgress";
 
 const Scene = () => {
   const canvasDiv = useRef<HTMLDivElement>(null);

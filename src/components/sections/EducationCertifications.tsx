@@ -1,4 +1,4 @@
-import "./styles/EducationCertifications.css";
+import "../../styles/EducationCertifications.css";
 
 interface Certification {
   name: string;

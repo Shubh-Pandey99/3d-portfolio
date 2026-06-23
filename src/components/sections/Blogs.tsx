@@ -1,4 +1,4 @@
-import "./styles/Blogs.css";
+import "../../styles/Blogs.css";
 import { TbArticle, TbArrowUpRight } from "react-icons/tb";
 
 const blogs = [

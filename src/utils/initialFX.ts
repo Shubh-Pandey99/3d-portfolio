@@ -1,7 +1,7 @@
 import { SplitText } from "gsap/SplitText";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { smoother } from "../Navbar";
+import { smoother } from "../components/layout/Navbar";
 
 gsap.registerPlugin(ScrollTrigger);
 
